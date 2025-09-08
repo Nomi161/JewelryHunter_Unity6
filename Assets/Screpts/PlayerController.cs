@@ -121,6 +121,14 @@ public class PlayerController : MonoBehaviour
             Goal();
         }
         
+        // ぶつかった相手が"Dead"タグをもっていたら
+        if (collision.gameObject.CompareTag("Dead"))
+        {
+            GameManager.gameState = "gameover";
+            Debug.Log("ゲームオーバー！");
+            GameOver();
+        }
+        
     }
 
     // ゴールした時のメソッド
@@ -129,6 +137,23 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Clear", true);    // クリアアニメに切り替え
         GameStop();     // プレイヤーのVelocityを止めるメソッド
     }
+
+    // ゲームオーバーの時のメソッド
+    public void GameOver()
+    {
+        animator.SetBool("Dead", true); // デッドアニメに切り替え
+        GameStop();
+
+        // 当たり判定を無効(地面上で敵に接触した時、画面から退場させるため)
+        GetComponent<CapsuleCollider2D>().enabled = false;
+
+        // 少し上に飛び跳ねさせる
+        rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+
+        // プレイヤーを3秒後に抹消
+        Destroy(gameObject, 3.0f);
+    }
+
     void GameStop()
     {
         // 速度を0にリセット
