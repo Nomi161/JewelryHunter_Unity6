@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCountDown: 1
-  gameTime: 10
+  gameTime: 30
   isTimeOver: 0
   displayTime: 0
 --- !u!1 &519420028
