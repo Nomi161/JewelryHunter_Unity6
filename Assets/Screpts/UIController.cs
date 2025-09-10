@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +14,15 @@ public class UIController : MonoBehaviour
     public Sprite gameClearSprite;  // ゲームクリアの絵
     public Sprite gameOverSprite;   // ゲームオーバーの絵
 
+    TimeController timeCnt;         // TimeController.csの参照
+    public GameObject timeText;     // ゲームオブジェクトである
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        timeCnt = GetComponent<TimeController>();
+
         buttonPanel.SetActive(false);   // 存在を非表示
 
         // 時間差でメソッドを発動
@@ -45,11 +51,17 @@ public class UIController : MonoBehaviour
             // ネクストボタンオブジェクトのButtonコンポーネントが所持している変数interactableを無効(ボタン機能を無効)
             nextButton.GetComponent<Button>().interactable = false;
         }
+        else if (GameManager.gameState == "playing")
+        {
+            // いったんdisplayTimeの数字を変数timesに渡す
+            float times = timeCnt.displayTime;
+            timeText.GetComponent<TextMeshProUGUI>().text = Mathf.Ceil(times).ToString();
+        }
 
 
     }
 
-    // メイン画像を日表示するためだけのメソッド
+    // メイン画像を表示するためだけのメソッド
     void InactiveImage()
     {
         mainImage.SetActive(false);

@@ -4,6 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public static string gameState; // 静的メンバ
 
+    public static int totalScore;   // ゲーム全体を通してのスコア
+    public static int stageScore;   // そのステージに獲得したスコア
+
     // Startより前に処理される
     private void Awake()
     {
