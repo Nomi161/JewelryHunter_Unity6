@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762802038191252561}
   - component: {fileID: 4401102025425349565}
+  - component: {fileID: 8626044343680212392}
   - component: {fileID: 8122555581182932206}
   m_Layer: 6
   m_Name: MovingBlock
@@ -88,6 +89,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8626044343680212392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406136904609773337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afaa373a62991b41a173a013f045277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 10
+  moveY: 0
+  times: 1
+  wait: 3
+  isMoveWhenOn: 1
 --- !u!61 &8122555581182932206
 BoxCollider2D:
   m_ObjectHideFlags: 0
