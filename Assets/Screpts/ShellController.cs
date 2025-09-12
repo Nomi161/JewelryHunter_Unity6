@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class ShellController : MonoBehaviour
 {
-    [Header("¶‘¶ŠÔ")]
-    public float deleteTime = 3.0f; // íœ‚·‚éŠÔw’è
+    [Header("ç”Ÿå­˜æ™‚é–“")]
+    public float deleteTime = 3.0f; // å‰Šé™¤ã™ã‚‹æ™‚é–“æŒ‡å®š
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, deleteTime);    // íœİ’è    
+        Destroy(gameObject, deleteTime);    // å‰Šé™¤è¨­å®š    
     }
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject); // ‰½‚©‚ÉÚG‚µ‚½‚çÁ‚·
+        Destroy(gameObject); // ä½•ã‹ã«æ¥è§¦ã—ãŸã‚‰æ¶ˆã™
     }
 }

@@ -1,23 +1,23 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CannonController : MonoBehaviour
 {
-    [Header("¶¬ƒvƒŒƒnƒu/ŠÔ/‘¬“x/”ÍˆÍ")]
-    public GameObject objPrefab;            // ”­¶‚³‚¹‚éPrefabƒf[ƒ^
-    public float delayTime = 3.0f;          // ’x‰„ŠÔ
-    public float fireSpeed = 4.0f;          // ”­Ë‘¬“x
-    public float length = 8.0f;             // ”ÍˆÍ
+    [Header("ç”Ÿæˆãƒ—ãƒ¬ãƒãƒ–/æ™‚é–“/é€Ÿåº¦/ç¯„å›²")]
+    public GameObject objPrefab;            // ç™ºç”Ÿã•ã›ã‚‹Prefabãƒ‡ãƒ¼ã‚¿
+    public float delayTime = 3.0f;          // é…å»¶æ™‚é–“
+    public float fireSpeed = 4.0f;          // ç™ºå°„é€Ÿåº¦
+    public float length = 8.0f;             // ç¯„å›²
 
-    [Header("”­ËŒû")]
+    [Header("ç™ºå°„å£")]
     public Transform gateTransform;
 
-    GameObject player;      // ƒvƒŒƒCƒ„[
-    float passedTimes = 0;  // Œo‰ßŠÔ
+    GameObject player;      // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+    float passedTimes = 0;  // çµŒéæ™‚é–“
 
-    AudioSource audioSource;
+    AudioSource audio;
     public AudioClip se_Shoot;
 
-    // ‹——£ƒ`ƒFƒbƒN
+    // è·é›¢ãƒã‚§ãƒƒã‚¯
     bool CheckLength(Vector2 targetPos)
     {
         bool ret = false;
@@ -32,10 +32,10 @@ public class CannonController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // ƒvƒŒƒCƒ„[‚ğæ“¾
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
         player = GameObject.FindGameObjectWithTag("Player");
 
-        audioSource = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,20 +43,20 @@ public class CannonController : MonoBehaviour
     {
         if (player != null)
         {
-            // ‘Ò‹@ŠÔ‰ÁZ
+            // å¾…æ©Ÿæ™‚é–“åŠ ç®—
             passedTimes += Time.deltaTime;
 
-            // Player‚Æ‚Ì‹——£ƒ`ƒFƒbƒN
+            // Playerã¨ã®è·é›¢ãƒã‚§ãƒƒã‚¯
             if (CheckLength(player.transform.position))
             {
-                // ‘Ò‹@ŠÔŒo‰ß
+                // å¾…æ©Ÿæ™‚é–“çµŒé
                 if (passedTimes > delayTime)
                 {
-                    passedTimes = 0;    // ŠÔ‚ğ0‚ÉƒŠƒZƒbƒg
-                                        // –C’e‚ğƒvƒŒƒnƒu‚©‚çì‚é
+                    passedTimes = 0;    // æ™‚é–“ã‚’0ã«ãƒªã‚»ãƒƒãƒˆ
+                                        // ç ²å¼¾ã‚’ãƒ—ãƒ¬ãƒãƒ–ã‹ã‚‰ä½œã‚‹
                     Vector2 pos = new Vector2(gateTransform.position.x, gateTransform.position.y);
                     GameObject obj = Instantiate(objPrefab, pos, Quaternion.identity);
-                    // –Cg‚ªŒü‚¢‚Ä‚¢‚é•ûŒü‚É”­Ë‚·‚é
+                    // ç ²èº«ãŒå‘ã„ã¦ã„ã‚‹æ–¹å‘ã«ç™ºå°„ã™ã‚‹
                     Rigidbody2D rbody = obj.GetComponent<Rigidbody2D>();
                     float angleZ = transform.localEulerAngles.z;
                     float x = Mathf.Cos(angleZ * Mathf.Deg2Rad);
@@ -64,13 +64,14 @@ public class CannonController : MonoBehaviour
                     Vector2 v = new Vector2(x, y) * fireSpeed;
                     rbody.AddForce(v, ForceMode2D.Impulse);
 
-                    audioSource.PlayOneShot(se_Shoot);
+                    // SEã‚’é³´ã‚‰ã™
+                    audio.PlayOneShot(se_Shoot);
                 }
             }
         }
     }
 
-    // ”ÍˆÍ•\¦
+    // ç¯„å›²è¡¨ç¤º
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, length);

@@ -1,28 +1,28 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    // ƒJƒEƒ“ƒgƒ_ƒEƒ“‚É‚·‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
-    // false‚È‚çƒJƒEƒ“ƒgƒAƒbƒv
+    // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã«ã™ã‚‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
+    // falseãªã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—
     public bool isCountDown = true;
 
-    // ƒQ[ƒ€‚ÌŠî€‚Æ‚È‚éŠÔ
+    // ã‚²ãƒ¼ãƒ ã®åŸºæº–ã¨ãªã‚‹æ™‚é–“
     public float gameTime = 0;
 
-    // ƒJƒEƒ“ƒg‚ğ~‚ß‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
-    // false‚È‚çƒJƒEƒ“ƒg‚µ‘±‚¯‚éAtrue‚È‚çƒJƒEƒ“ƒgI—¹
+    // ã‚«ã‚¦ãƒ³ãƒˆã‚’æ­¢ã‚ã‚‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
+    // falseãªã‚‰ã‚«ã‚¦ãƒ³ãƒˆã—ç¶šã‘ã‚‹ã€trueãªã‚‰ã‚«ã‚¦ãƒ³ãƒˆçµ‚äº†
     public bool isTimeOver = false;
 
-    // ƒ†[ƒU[‚ÉŒ©‚¹‚éŠÔ
+    // ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«è¦‹ã›ã‚‹æ™‚é–“
     public float displayTime = 0;
 
-    // ƒQ[ƒ€‚ÌŒo‰ßŠÔ
+    // ã‚²ãƒ¼ãƒ ã®çµŒéæ™‚é–“
     float times = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //‚à‚µƒJƒEƒ“ƒgƒ_ƒEƒ“‚Å‚ ‚ê‚ÎŠî€ŠÔ‚ğƒ†[ƒU[‚ÉŒ©‚¦‚é‚æ‚¤‚É‚·‚é
+        //ã‚‚ã—ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã§ã‚ã‚Œã°åŸºæº–æ™‚é–“ã‚’ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«è¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
         if (isCountDown)
         {
             displayTime = gameTime;
@@ -35,41 +35,41 @@ public class TimeController : MonoBehaviour
     {
         if (!isTimeOver)
         {
-            // ’â~ƒtƒ‰ƒO‚ª‚½‚Á‚Ä‚¢‚È‚¢‚Ì‚Åˆ—‚µ‚½‚¢‚ª
-            // ƒQ[ƒ€ƒXƒe[ƒ^ƒX‚ªplaying‚Å‚È‚­‚È‚Á‚½‚Í~‚ß‚½‚¢
+            // åœæ­¢ãƒ•ãƒ©ã‚°ãŒãŸã£ã¦ã„ãªã„ã®ã§å‡¦ç†ã—ãŸã„ãŒ
+            // ã‚²ãƒ¼ãƒ ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒplayingã§ãªããªã£ãŸæ™‚ã¯æ­¢ã‚ãŸã„
             if (GameManager.gameState != "playing")
             {
-                isTimeOver = true;  // ’â~ƒtƒ‰ƒO‚ğON
+                isTimeOver = true;  // åœæ­¢ãƒ•ãƒ©ã‚°ã‚’ON
             }
 
-            // ƒJƒEƒ“ƒg‚Ìˆ—‚·‚é
-            // Œo‰ßŠÔ‚Ì’~Ï
-            times += Time.deltaTime;    // ƒfƒ‹ƒ^ƒ^ƒCƒ€‚Ì’~Ï
+            // ã‚«ã‚¦ãƒ³ãƒˆã®å‡¦ç†ã™ã‚‹
+            // çµŒéæ™‚é–“ã®è“„ç©
+            times += Time.deltaTime;    // ãƒ‡ãƒ«ã‚¿ã‚¿ã‚¤ãƒ ã®è“„ç©
 
-            // ƒJƒEƒ“ƒgƒ_ƒEƒ“Œ`®‚¾‚Á‚½ê‡
+            // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³å½¢å¼ã ã£ãŸå ´åˆ
             if (isCountDown)
             {
-                // ƒ†[ƒU[‚ÉŒ©‚¹‚½‚¢ŠÔ(cŠÔ)
-                // cŠÔ‚É(Šî€ŠÔ - Œo‰ßŠÔ)
+                // ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«è¦‹ã›ãŸã„æ™‚é–“(æ®‹æ™‚é–“)
+                // æ®‹æ™‚é–“ã«(åŸºæº–æ™‚é–“ - çµŒéæ™‚é–“)
                 displayTime = gameTime - times;
 
                 if (displayTime <= 0)
                 {
-                    displayTime = 0;    // 0‚Æ‚¢‚¤•\‹L‚É“ˆê
-                    isTimeOver = true;  // ’â~ƒ^ƒCƒ}[‚ğON
-                    GameManager.gameState = "gameover";
+                    displayTime = 0;    // 0ã¨ã„ã†è¡¨è¨˜ã«çµ±ä¸€
+                    isTimeOver = true;  // åœæ­¢ã‚¿ã‚¤ãƒãƒ¼ã‚’ON
+                    //GameManager.gameState = "gameover";
                 }
             }
-            else    // ƒJƒEƒ“ƒgƒAƒbƒvŒ`®‚¾‚Á‚½ê‡
+            else    // ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—å½¢å¼ã ã£ãŸå ´åˆ
             {
-                // Œo‰ßŠÔ‚ğƒ†[ƒU[‚ÉŒ©‚¹‚½‚¢ŠÔ‚Ì‘ã“ü
+                // çµŒéæ™‚é–“ã‚’ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«è¦‹ã›ãŸã„æ™‚é–“ã®ä»£å…¥
                 displayTime = times;
                 if (displayTime >= gameTime)
                 {
-                    // ƒ†[ƒU[‚ÉŒ©‚¹‚½‚¢ŠÔ‚ğŠî€ŠÔ‚É‚·‚é
+                    // ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«è¦‹ã›ãŸã„æ™‚é–“ã‚’åŸºæº–æ™‚é–“ã«ã™ã‚‹
                     displayTime = gameTime;
-                    isTimeOver = true;  // ’â~ƒtƒ‰ƒO‚ğON
-                    GameManager.gameState = "gameover";
+                    isTimeOver = true;  // åœæ­¢ãƒ•ãƒ©ã‚°ã‚’ON
+                    //GameManager.gameState = "gameover";
                 }
             }
 

@@ -1,30 +1,30 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MovingBlock : MonoBehaviour
 {
-    [Header("ˆÚ“®‹——£/ŠÔ/ŠÔŠu")]
-    public float moveX = 0.0f;  // XˆÚ“®‹——£
-    public float moveY = 0.0f;  // YˆÚ“®‹——£
-    public float times = 0.0f;  // n“_‚©‚çI“_‚Ü‚Å‚ÌˆÚ“®ŠÔ(•b)
-    public float wait = 0.0f;   // ’â~ŠÔ
+    [Header("ç§»å‹•è·é›¢/æ™‚é–“/é–“éš”")]
+    public float moveX = 0.0f;  // Xç§»å‹•è·é›¢
+    public float moveY = 0.0f;  // Yç§»å‹•è·é›¢
+    public float times = 0.0f;  // å§‹ç‚¹ã‹ã‚‰çµ‚ç‚¹ã¾ã§ã®ç§»å‹•æ™‚é–“(ç§’)
+    public float wait = 0.0f;   // åœæ­¢æ™‚é–“
 
-    [Header("æ‚Á‚Ä‚©‚ç“®‚­ƒtƒ‰ƒO")]
-    public bool isMoveWhenOn = false;   // æ‚Á‚½‚É“®‚­ƒtƒ‰ƒO
+    [Header("ä¹—ã£ã¦ã‹ã‚‰å‹•ããƒ•ãƒ©ã‚°")]
+    public bool isMoveWhenOn = false;   // ä¹—ã£ãŸæ™‚ã«å‹•ããƒ•ãƒ©ã‚°
 
-    bool isCanMove = true;      // “®‚­ƒtƒ‰ƒO
-    Vector3 startPos;           // ‰ŠúˆÊ’u
-    Vector3 endPos;             // ˆÚ“®ˆÊ’u
-    bool isReverse = false;     // ”½“]ƒtƒ‰ƒO
-    float movep = 0;            // ˆÚ“®•âŠ®’l
+    bool isCanMove = true;      // å‹•ããƒ•ãƒ©ã‚°
+    Vector3 startPos;           // åˆæœŸä½ç½®
+    Vector3 endPos;             // ç§»å‹•ä½ç½®
+    bool isReverse = false;     // åè»¢ãƒ•ãƒ©ã‚°
+    float movep = 0;            // ç§»å‹•è£œå®Œå€¤
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startPos = transform.position;                                  // ‰ŠúˆÊ’u
-        endPos = new Vector2(startPos.x + moveX, startPos.y + moveY);   // ˆÚ“®ˆÊ’u
+        startPos = transform.position;                                  // åˆæœŸä½ç½®
+        endPos = new Vector2(startPos.x + moveX, startPos.y + moveY);   // ç§»å‹•ä½ç½®
         if (isMoveWhenOn)
         {
-            // æ‚Á‚½‚É“®‚­‚Ì‚ÅÅ‰‚Í“®‚©‚³‚È‚¢
+            // ä¹—ã£ãŸæ™‚ã«å‹•ãã®ã§æœ€åˆã¯å‹•ã‹ã•ãªã„
             isCanMove = false;
         }
     }
@@ -34,73 +34,73 @@ public class MovingBlock : MonoBehaviour
     {
         if (isCanMove)
         {
-            float distance = Vector2.Distance(startPos, endPos);    // ˆÚ“®‹——£
-            float ds = distance / times;                            // 1•b‚ÌˆÚ“®‹——£
-            float df = ds * Time.deltaTime;                         // 1ƒtƒŒ[ƒ€‚ÌˆÚ“®‹——£
+            float distance = Vector2.Distance(startPos, endPos);    // ç§»å‹•è·é›¢
+            float ds = distance / times;                            // 1ç§’ã®ç§»å‹•è·é›¢
+            float df = ds * Time.deltaTime;                         // 1ãƒ•ãƒ¬ãƒ¼ãƒ ã®ç§»å‹•è·é›¢
             movep += df / distance;
             if (isReverse)
             {
-                // •âŠ®ŒnŠÖ” Lerp
-                // ŠŠ‚ç‚©‚ÉˆÚ“®‚·‚é
-                // ˆø”Fn“_,I“_,ˆÚ“®ˆÊ’u(0`1(0%`100%))
-                transform.position = Vector2.Lerp(endPos, startPos, movep); // ‹tˆÚ“®
+                // è£œå®Œç³»é–¢æ•° Lerp
+                // æ»‘ã‚‰ã‹ã«ç§»å‹•ã™ã‚‹
+                // å¼•æ•°ï¼šå§‹ç‚¹,çµ‚ç‚¹,ç§»å‹•ä½ç½®(0ï½1(0%ï½100%))
+                transform.position = Vector2.Lerp(endPos, startPos, movep); // é€†ç§»å‹•
             }
             else
             {
-                transform.position = Vector2.Lerp(startPos, endPos, movep); // ³ˆÚ“®
+                transform.position = Vector2.Lerp(startPos, endPos, movep); // æ­£ç§»å‹•
             }
             if (movep >= 1.0f)
             {
-                movep = 0.0f;               // ˆÚ“®•âŠ®’lƒŠƒZƒbƒg
-                isReverse = !isReverse;     // ˆÚ“®‚ğ‹t“]
-                isCanMove = false;          // ˆÚ“®’â~
+                movep = 0.0f;               // ç§»å‹•è£œå®Œå€¤ãƒªã‚»ãƒƒãƒˆ
+                isReverse = !isReverse;     // ç§»å‹•ã‚’é€†è»¢
+                isCanMove = false;          // ç§»å‹•åœæ­¢
                 if (isMoveWhenOn == false)
                 {
-                    // æ‚Á‚½‚É“®‚­ƒtƒ‰ƒOOFF
-                    Invoke("Move", wait);   // ˆÚ“®ƒtƒ‰ƒO‚ğ—§‚Ä‚é’x‰„Às
+                    // ä¹—ã£ãŸæ™‚ã«å‹•ããƒ•ãƒ©ã‚°OFF
+                    Invoke("Move", wait);   // ç§»å‹•ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹é…å»¶å®Ÿè¡Œ
                 }
             }
         }
     }
 
-    // ˆÚ“®ƒtƒ‰ƒO‚ğ—§‚Ä‚é
+    // ç§»å‹•ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
     public void Move()
     {
         isCanMove = true;
     }
 
-    // ˆÚ“®ƒtƒ‰ƒO‚ğ‰º‚·
+    // ç§»å‹•ãƒ•ãƒ©ã‚°ã‚’ä¸‹ã™
     public void Stop()
     {
         isCanMove = false;
     }
 
-    // ÚGŠJn
+    // æ¥è§¦é–‹å§‹
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            // ÚG‚µ‚½‚Ì‚ªƒvƒŒƒCƒ„[‚È‚çˆÚ“®°‚Ìq‚É‚·‚é
+            // æ¥è§¦ã—ãŸã®ãŒãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãªã‚‰ç§»å‹•åºŠã®å­ã«ã™ã‚‹
             collision.transform.SetParent(transform);
             if (isMoveWhenOn)
             {
-                // æ‚Á‚½‚É“®‚­ƒtƒ‰ƒOON
-                isCanMove = true;   // ˆÚ“®ƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                // ä¹—ã£ãŸæ™‚ã«å‹•ããƒ•ãƒ©ã‚°ON
+                isCanMove = true;   // ç§»å‹•ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
             }
         }
     }
 
-    // ÚGI—¹
+    // æ¥è§¦çµ‚äº†
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            // ÚG‚µ‚½‚Ì‚ªƒvƒŒƒCƒ„[‚È‚çˆÚ“®°‚Ìq‚©‚çŠO‚·
+            // æ¥è§¦ã—ãŸã®ãŒãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãªã‚‰ç§»å‹•åºŠã®å­ã‹ã‚‰å¤–ã™
             collision.transform.SetParent(null);
         }
     }
 
-    // ˆÚ“®”ÍˆÍ•\¦
+    // ç§»å‹•ç¯„å›²è¡¨ç¤º
     private void OnDrawGizmosSelected()
     {
         Vector2 fromPos;
@@ -112,13 +112,13 @@ public class MovingBlock : MonoBehaviour
         {
             fromPos = startPos;
         }
-        // ˆÚ“®ü
+        // ç§»å‹•ç·š
         Gizmos.DrawLine(fromPos, new Vector2(fromPos.x + moveX, fromPos.y + moveY));
-        // ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒY
+        // ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚º
         Vector2 size = GetComponent<SpriteRenderer>().size;
-        // ‰ŠúˆÊ’u
+        // åˆæœŸä½ç½®
         Gizmos.DrawWireCube(fromPos, new Vector2(size.x, size.y));
-        // ˆÚ“®ˆÊ’u
+        // ç§»å‹•ä½ç½®
         Vector2 toPos = new Vector3(fromPos.x + moveX, fromPos.y + moveY);
         Gizmos.DrawWireCube(toPos, new Vector2(size.x, size.y));
     }

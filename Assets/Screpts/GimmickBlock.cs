@@ -1,75 +1,75 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GimmickBlock : MonoBehaviour
 {
-    [Header("—‰ºŒŸ’m‹——£")]
-    public float length = 0.0f;     // ©“®—‰ºŒŸ’m‹——£
+    [Header("è½ä¸‹æ¤œçŸ¥è·é›¢")]
+    public float length = 0.0f;     // è‡ªå‹•è½ä¸‹æ¤œçŸ¥è·é›¢
 
-    [Header("—‰ºŒãÁ–Åƒtƒ‰ƒO")]
-    public bool isDelete = false;   // —‰ºŒã‚Éíœ‚·‚éƒtƒ‰ƒO
+    [Header("è½ä¸‹å¾Œæ¶ˆæ»…ãƒ•ãƒ©ã‚°")]
+    public bool isDelete = false;   // è½ä¸‹å¾Œã«å‰Šé™¤ã™ã‚‹ãƒ•ãƒ©ã‚°
 
-    [Header("“–‚½‚è”»’èƒIƒuƒWƒFƒNƒg")]
-    public GameObject deadObj;      // €–S“–‚½‚è
+    [Header("å½“ãŸã‚Šåˆ¤å®šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
+    public GameObject deadObj;      // æ­»äº¡å½“ãŸã‚Š
 
-    bool isFell = false;            // —‰ºƒtƒ‰ƒO
-    float fadeTime = 0.5f;          // ƒtƒF[ƒhƒAƒEƒgŠÔ
+    bool isFell = false;            // è½ä¸‹ãƒ•ãƒ©ã‚°
+    float fadeTime = 0.5f;          // ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ™‚é–“
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Rigidbody2D‚Ì•¨—‹““®‚ğ’â~
+        // Rigidbody2Dã®ç‰©ç†æŒ™å‹•ã‚’åœæ­¢
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
-        deadObj.SetActive(false);   // €–S‚ ‚½‚è‚ğ”ñ•\¦
+        deadObj.SetActive(false);   // æ­»äº¡ã‚ãŸã‚Šã‚’éè¡¨ç¤º
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player"); // ƒvƒŒƒCƒ„[‚ğ’T‚·
+        GameObject player = GameObject.FindGameObjectWithTag("Player"); // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’æ¢ã™
         if (player != null)
         {
 
-            // ƒvƒŒƒCƒ„[‚Æ‚Ì‹——£Œv‘ª
+            // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨ã®è·é›¢è¨ˆæ¸¬
             float d = Vector2.Distance(transform.position, player.transform.position);
             if (length >= d)
             {
                 Rigidbody2D rbody = GetComponent<Rigidbody2D>();
                 if (rbody.bodyType == RigidbodyType2D.Static)
                 {
-                    // Rigidbody2D‚Ì•¨—‹““®‚ğŠJn
+                    // Rigidbody2Dã®ç‰©ç†æŒ™å‹•ã‚’é–‹å§‹
                     rbody.bodyType = RigidbodyType2D.Dynamic;
-                    deadObj.SetActive(true);    // €–S‚ ‚½‚è‚ğ•\¦
+                    deadObj.SetActive(true);    // æ­»äº¡ã‚ãŸã‚Šã‚’è¡¨ç¤º
                 }
             }
 
         }
         if (isFell)
         {
-            // —‰º‚µ‚½
-            // “§–¾’l‚ğ•ÏX‚µ‚ÄƒtƒF[ƒhƒAƒEƒg‚³‚¹‚é
-            fadeTime -= Time.deltaTime; // ‘OƒtƒŒ[ƒ€‚Ì·•ª•bƒ}ƒCƒiƒX
-            Color col = GetComponent<SpriteRenderer>().color;   // ƒJƒ‰[‚ğæ‚èo‚·
-            col.a = fadeTime;   // “§–¾’l‚ğ•ÏX
-            GetComponent<SpriteRenderer>().color = col;  // ƒJƒ‰[‚ğÄİ’è‚·‚é
+            // è½ä¸‹ã—ãŸ
+            // é€æ˜å€¤ã‚’å¤‰æ›´ã—ã¦ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã•ã›ã‚‹
+            fadeTime -= Time.deltaTime; // å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®å·®åˆ†ç§’ãƒã‚¤ãƒŠã‚¹
+            Color col = GetComponent<SpriteRenderer>().color;   // ã‚«ãƒ©ãƒ¼ã‚’å–ã‚Šå‡ºã™
+            col.a = fadeTime;   // é€æ˜å€¤ã‚’å¤‰æ›´
+            GetComponent<SpriteRenderer>().color = col;  // ã‚«ãƒ©ãƒ¼ã‚’å†è¨­å®šã™ã‚‹
             if (fadeTime <= 0.0f)
             {
-                // 0ˆÈ‰º(“§–¾)‚É‚È‚Á‚½‚çÁ‚·
+                // 0ä»¥ä¸‹(é€æ˜)ã«ãªã£ãŸã‚‰æ¶ˆã™
                 Destroy(gameObject);
             }
         }
     }
 
-    // Ú‘±ŠJn
+    // æ¥ç¶šé–‹å§‹
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDelete)
         {
-            isFell = true;  // —‰ºƒtƒ‰ƒOƒIƒ“
+            isFell = true;  // è½ä¸‹ãƒ•ãƒ©ã‚°ã‚ªãƒ³
         }
     }
 
-    // ”ÍˆÍ•\¦
+    // ç¯„å›²è¡¨ç¤º
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, length);

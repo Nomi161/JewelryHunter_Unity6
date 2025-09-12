@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public enum ItemColor
 {
@@ -13,7 +13,7 @@ public class ItemData : MonoBehaviour
     public ItemColor colors = ItemColor.White;
     public Sprite[] itemSprites;
 
-    public int value = 0;   // ®”‚ğİ’è‚Å‚«‚é
+    public int value = 0;   // æ•´æ•°ã‚’è¨­å®šã§ãã‚‹
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

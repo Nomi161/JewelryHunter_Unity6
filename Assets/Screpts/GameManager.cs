@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static string gameState; // Ã“Iƒƒ“ƒo
+    public static string gameState; // é™çš„ãƒ¡ãƒ³ãƒ
 
-    public static int totalScore;   // ƒQ[ƒ€‘S‘Ì‚ğ’Ê‚µ‚Ä‚ÌƒXƒRƒA
-    public static int stageScore;   // ‚»‚ÌƒXƒe[ƒW‚ÉŠl“¾‚µ‚½ƒXƒRƒA
+    public static int totalScore;   // ã‚²ãƒ¼ãƒ å…¨ä½“ã‚’é€šã—ã¦ã®ã‚¹ã‚³ã‚¢
+    public static int stageScore;   // ãã®ã‚¹ãƒ†ãƒ¼ã‚¸ã«ç²å¾—ã—ãŸã‚¹ã‚³ã‚¢
 
-    // Start‚æ‚è‘O‚Éˆ—‚³‚ê‚é
+    // Startã‚ˆã‚Šå‰ã«å‡¦ç†ã•ã‚Œã‚‹
     private void Awake()
     {
-        // ƒQ[ƒ€‚Ì‰Šúó‘Ô‚ğplaying
+        // ã‚²ãƒ¼ãƒ ã®åˆæœŸçŠ¶æ…‹ã‚’playing
         gameState = "playing";
     }
 

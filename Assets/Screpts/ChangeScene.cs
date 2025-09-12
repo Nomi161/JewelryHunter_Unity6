@@ -1,14 +1,21 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public string sceneName;    // �؂�ւ������V�[����������
+    public string sceneName;    // 切り替えたいシーン名を氏名
+    public bool toTitle;        // タイトルへの切り替えかどうかのフラグ
 
-    // �V�[����؂�ւ���@�\�����������\�b�h�쐬
+    // シーンを切り替える機能をもったメソッド作成
     public void Load()
     {
-        // �����Ɏw�肵�����O�̃V�[���؂�ւ��̃��\�b�h�Ăяo��
+        // シーンが切り替わる際はいずれにしてもステージスコアはリセット
+        GameManager.stageScore = 0;
+
+        // toTitleフラグがtrueになっている場合はタイトルに戻ることが予想されるのでトータルスコアもリセット
+        if (toTitle) GameManager.totalScore = 0;
+
+        // 引数に指定した名前のシーン切り替えのメソッド呼び出し
         SceneManager.LoadScene(sceneName);
     }
 }

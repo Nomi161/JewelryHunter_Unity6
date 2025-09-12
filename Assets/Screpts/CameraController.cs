@@ -1,50 +1,50 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     GameObject player;
-    float x, y, z;  // ƒJƒƒ‰‚ÌÀ•W‚ğŒˆ‚ß‚é‚½‚ß‚Ì•Ï”
+    float x, y, z;  // ã‚«ãƒ¡ãƒ©ã®åº§æ¨™ã‚’æ±ºã‚ã‚‹ãŸã‚ã®å¤‰æ•°
 
-    [Header("ƒJƒƒ‰‚ÌŒÀŠE’l")]
+    [Header("ã‚«ãƒ¡ãƒ©ã®é™ç•Œå€¤")]
     public float leftLimit;
     public float rightLimit;
     public float bottomLimit;
     public float topLimit;
 
-    [Header("ƒJƒƒ‰‚ÌƒXƒNƒ[ƒ‹İ’è")]
-    public bool isScrollX;              // ‰¡•ûŒü‚É‹­§ƒXƒNƒ[ƒ‹‚·‚é‚©‚Ìƒtƒ‰ƒO
+    [Header("ã‚«ãƒ¡ãƒ©ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«è¨­å®š")]
+    public bool isScrollX;              // æ¨ªæ–¹å‘ã«å¼·åˆ¶ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ã‹ã®ãƒ•ãƒ©ã‚°
     public float scrollSpeedX = 0.5f;
-    public bool isScrollY;              // c•ûŒü‚É‹­§ƒXƒNƒ[ƒ‹‚·‚é‚©‚Ìƒtƒ‰ƒO
+    public bool isScrollY;              // ç¸¦æ–¹å‘ã«å¼·åˆ¶ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ã‹ã®ãƒ•ãƒ©ã‚°
     public float scrollSpeedY = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Playerƒ^ƒO‚ğ‚Á‚½ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ğ’T‚µ‚ÄA•Ï”player‚É‘ã“ü
+        // Playerã‚¿ã‚°ã‚’æŒã£ãŸã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¢ã—ã¦ã€å¤‰æ•°playerã«ä»£å…¥
         player = GameObject.FindGameObjectWithTag("Player");
 
-        // ƒJƒƒ‰‚ÌZÀ•W‚Í‰Šú’l‚Ì‚Ü‚Ü‚ğˆÛ‚µ‚½‚¢
+        // ã‚«ãƒ¡ãƒ©ã®Zåº§æ¨™ã¯åˆæœŸå€¤ã®ã¾ã¾ã‚’ç¶­æŒã—ãŸã„
         z = transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ƒvƒŒƒCƒ„[‚ÌƒIƒuƒWƒFƒNƒg‚ª‘¶İ‚·‚é‚©Šm”F‚·‚é(ƒQ[ƒ€ƒI[ƒo[‚É‚È‚é‚ÆƒvƒŒƒCƒ„[‚ÌƒIƒuƒWƒFƒNƒg‚Ííœ‚³‚ê‚éˆ×)
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèªã™ã‚‹(ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã«ãªã‚‹ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯å‰Šé™¤ã•ã‚Œã‚‹ç‚º)
         if (player != null)
         {
-            // ‚¢‚Á‚½‚ñƒvƒŒƒCƒ„[‚ÌXÀ•WAYÀ•W‚ÌˆÊ’u‚ğ•Ï”‚Éæ“¾
+            // ã„ã£ãŸã‚“ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®Xåº§æ¨™ã€Yåº§æ¨™ã®ä½ç½®ã‚’å¤‰æ•°ã«å–å¾—
             x = player.transform.position.x;
             y = player.transform.position.y;
 
-            // ‚à‚µ‚à‰¡‚Ì‹­§ƒXƒNƒ[ƒ‹ƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚½‚ç
+            // ã‚‚ã—ã‚‚æ¨ªã®å¼·åˆ¶ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ•ãƒ©ã‚°ãŒç«‹ã£ã¦ã„ãŸã‚‰
             if (isScrollX)
             {
-                //‘O‚ÌÀ•W‚É•Ï”•ª‚¾‚¯‰ÁZ‚µ‚½À•W
+                //å‰ã®åº§æ¨™ã«å¤‰æ•°åˆ†ã ã‘åŠ ç®—ã—ãŸåº§æ¨™
                 x = transform.position.x + (scrollSpeedX * Time.deltaTime);
             }
 
-            // ‚à‚µ‚à¶‰E‚ÌŒÀŠE‚Ü‚ÅƒvƒŒƒCƒ„[‚ªˆÚ“®‚µ‚½‚ç
+            // ã‚‚ã—ã‚‚å·¦å³ã®é™ç•Œã¾ã§ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç§»å‹•ã—ãŸã‚‰
             if (x < leftLimit)
             {
                 x = leftLimit;
@@ -54,14 +54,14 @@ public class CameraController : MonoBehaviour
                 x = rightLimit;
             }
 
-            // ‚à‚µ‚àc‚Ì‹­§ƒXƒNƒ[ƒ‹ƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚½‚ç
+            // ã‚‚ã—ã‚‚ç¸¦ã®å¼·åˆ¶ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ•ãƒ©ã‚°ãŒç«‹ã£ã¦ã„ãŸã‚‰
             if (isScrollY)
             {
-                // ‘O‚ÌÀ•W‚É•Ï”•ª‚¾‚¯‰ÁZ‚µ‚½À•W
+                // å‰ã®åº§æ¨™ã«å¤‰æ•°åˆ†ã ã‘åŠ ç®—ã—ãŸåº§æ¨™
                 y = transform.position.y + (scrollSpeedY * Time.deltaTime);
             }
 
-            // ‚à‚µ‚àã‰º‚ÌŒÀŠE‚Ü‚ÅƒvƒŒƒCƒ„[‚ªˆÚ“®‚µ‚½‚ç
+            // ã‚‚ã—ã‚‚ä¸Šä¸‹ã®é™ç•Œã¾ã§ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç§»å‹•ã—ãŸã‚‰
             if (y < bottomLimit)
             {
                 y = bottomLimit;
@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
                 y = topLimit;
             }
 
-            // æ‚èŒˆ‚ß‚½Še•Ï”x,y,z‚Ì’l‚ğƒJƒƒ‰‚Ìƒ|ƒWƒVƒ‡ƒ“‚Æ‚·‚é
+            // å–ã‚Šæ±ºã‚ãŸå„å¤‰æ•°x,y,zã®å€¤ã‚’ã‚«ãƒ¡ãƒ©ã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã¨ã™ã‚‹
             transform.position = new Vector3(x, y, z);
         }
     }

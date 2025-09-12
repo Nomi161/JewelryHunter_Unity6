@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [Header("Ü‚è•Ô‚µ")]
+    [Header("æŠ˜ã‚Šè¿”ã—")]
     public GameObject sencer;
 
-    [Header("Šî–{İ’è")]
+    [Header("åŸºæœ¬è¨­å®š")]
     public float speed = 1.0f;
     public bool isRight;
 
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // ’n–ÊˆÈŠO‚ÌƒIƒuƒWƒFƒNƒg‚ÉÚG‚µ‚½‚ç”½“]‚·‚é
+    // åœ°é¢ä»¥å¤–ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ¥è§¦ã—ãŸã‚‰åè»¢ã™ã‚‹
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ground"))
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // ƒZƒ“ƒT[‚ª’n–Ê‚©‚çŠO‚ê‚½‚ç”½“]‚·‚é
+    // ã‚»ãƒ³ã‚µãƒ¼ãŒåœ°é¢ã‹ã‚‰å¤–ã‚ŒãŸã‚‰åè»¢ã™ã‚‹
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
