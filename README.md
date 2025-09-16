@@ -2,7 +2,7 @@
 
 [ゲームのサンプルプレイ](https://nomi161.github.io/JewelryHunter_web/)
 
-![ゲーム画面](reademeImg/jewelryhunter_portfolio.jpg)
+![ゲーム画面](readmeImg/jewelryhunter_portfolio.jpg)
 
 ## 訓練校で学習する初2D作品
 * Playerの動作
@@ -13,11 +13,11 @@
 ## 制作のポイント
 ### アニメーションをトランジションで作成
 Playerのアニメ切り替えには各クリップをトランジションで繋いでフラグで管理しました。トランジションを組み込むことで、アニメ切り替えが滑らかになり、かつコーディングが効率的なものになりました。
-![トランジションの絵](reademeImg/JewelryHunter_readme01.jpg)
+![トランジションの絵](readmeImg/JewelryHunter_readme01.jpg)
   
 ## Itemのコーディングの効率化
 Itemは列挙型のItemColorを自作して、ItemColor型の変数次第で何色が選ばれているかにより見た目が変わるようなコーディングの工夫を行いました。  
-![トランジションの絵](reademeImg/JewelryHunter_readme02.jpg)
+![トランジションの絵](readmeImg/JewelryHunter_readme02.jpg)
 
 ```C#
 using UnityEngine;
@@ -69,4 +69,4 @@ public class ItemData : MonoBehaviour
   
 ## TextMeshProのデザイン切り分け
 TexMeshProのデザインを細かく切り分けてデータを用意するなど工夫しました。
-![TextMeshProデザインの絵](reademeImg/jewelryhunter_readme03.jpg)
+![TextMeshProデザインの絵](readmeImg/jewelryhunter_readme03.jpg)
