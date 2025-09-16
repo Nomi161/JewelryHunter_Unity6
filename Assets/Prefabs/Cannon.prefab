@@ -139,7 +139,7 @@ MonoBehaviour:
   fireSpeed: 4
   length: 8
   gateTransform: {fileID: 1832689998510612652}
-  se_Shoot: {fileID: 0}
+  se_Shoot: {fileID: 8300000, guid: 240f4bbdd203b9b4e96256394a7ac4e7, type: 3}
 --- !u!61 &8450001641046642637
 BoxCollider2D:
   m_ObjectHideFlags: 0

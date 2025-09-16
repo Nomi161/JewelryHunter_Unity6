@@ -15,10 +15,10 @@ public class UIController : MonoBehaviour
     public Sprite gameOverSprite;   // ゲームオーバーの絵
 
     TimeController timeCnt;         // TimeController.csの参照
-    public GameObject timeText;     // ゲームオブジェクトである
+    public GameObject timeText;     // ゲームオブジェクトであるTimeText
 
     public GameObject scoreText;    // スコアテキスト
-    
+
     AudioSource audio;
     SoundController soundController;    // 自作したスクリプト
 
@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.gameState == "gameclear") 
+        if (GameManager.gameState == "gameclear")
         {
             buttonPanel.SetActive(true);    // ボタンパネルの復活
             mainImage.SetActive(true);      // メイン画像の復活
@@ -63,24 +63,25 @@ public class UIController : MonoBehaviour
             float times = timeCnt.displayTime;
 
             if (timeCnt.isCountDown)    // カウントダウン
-            {
+            {   // 残時間をそのままタイムボーナスとしてトータルスコアに加算
                 GameManager.totalScore += (int)times * 10;
             }
             else // カウントアップ
             {
                 float gameTime = timeCnt.gameTime;  // 基準時間の取得
                 GameManager.totalScore += (int)(gameTime - times) * 10;
-
-                UpdateScore();  // UIに最終的な数字を反映
-
-                // サウンドをストップ
-                audio.Stop();
-                // SoundCOntrollerの変数に指名したゲームクリアの音を選択して鳴らす
-                audio.PlayOneShot(soundController.bgm_GameClear);
-
-                // 2重3重にスコアを加算しないようgameclearのフラグは早々に変化
-                GameManager.gameState = "gameend";
             }
+
+            UpdateScore();  // UIに最終的な数字を反映
+
+            // サウンドをストップ
+            audio.Stop();
+            // SoundCOntrollerの変数に指名したゲームクリアの音を選択して鳴らす
+            audio.PlayOneShot(soundController.bgm_GameClear);
+
+            // 2重3重にスコアを加算しないようgameclearのフラグは早々に変化
+            GameManager.gameState = "gameend";
+
         }
         else if (GameManager.gameState == "gameover")
         {
@@ -125,8 +126,9 @@ public class UIController : MonoBehaviour
                     GameManager.gameState = "gameover";
                 }
             }
-                // スコアもリアルタイムに更新
-                UpdateScore();
+
+            // スコアもリアルタイムに更新
+            UpdateScore();
         }
 
 

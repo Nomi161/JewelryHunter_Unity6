@@ -4380,6 +4380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
+      objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 94.24
@@ -5432,6 +5436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
+      objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.82
@@ -5549,6 +5557,10 @@ PrefabInstance:
     - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_Name
       value: Item (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
       objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5756,6 +5768,10 @@ PrefabInstance:
     - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_Name
       value: Item (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
       objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6009,7 +6025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347fd41247ad0dc4e9e983a53c6cd79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: BaseScene
+  sceneName: Stage2
   toTitle: 0
 --- !u!1 &1213396467
 GameObject:
@@ -6216,6 +6232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
+      objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.82
@@ -6276,6 +6296,10 @@ PrefabInstance:
     - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_Name
       value: Item (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 251369631380645596, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
+      propertyPath: m_TagString
+      value: ItemScore
       objectReference: {fileID: 0}
     - target: {fileID: 3169397195181344200, guid: cbae4d1215dbd84419a0c06d8ae40d26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7540,6 +7564,10 @@ SceneRoots:
   - {fileID: 1837681680}
   - {fileID: 665012273}
   - {fileID: 1315943548}
+  - {fileID: 1351103800}
+  - {fileID: 683188636}
+  - {fileID: 1050024874}
+  - {fileID: 228231830}
   - {fileID: 532445082}
   - {fileID: 1926520350}
   - {fileID: 2070950116}
@@ -7549,10 +7577,6 @@ SceneRoots:
   - {fileID: 159360444}
   - {fileID: 123390535}
   - {fileID: 153078661}
-  - {fileID: 1351103800}
-  - {fileID: 683188636}
-  - {fileID: 1050024874}
-  - {fileID: 228231830}
   - {fileID: 753611058}
   - {fileID: 1074565749}
   - {fileID: 1666787130}

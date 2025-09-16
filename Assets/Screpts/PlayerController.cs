@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
     // isTrigger特性をもっているColliderとぶつかったら処理される
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // ぶつかった相手が"Goal"タグをもっていたら
         // if (collision.gameObject.tag == "Goal")
         if (collision.gameObject.CompareTag("Goal"))
         {

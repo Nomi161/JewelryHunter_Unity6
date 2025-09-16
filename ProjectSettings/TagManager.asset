@@ -6,11 +6,11 @@ TagManager:
   tags:
   - Goal
   - Dead
-  - ScoreItem
   - Ground
   - ItemScore
   - Wall
   - Enemy
+  - ScoreItem
   layers:
   - Default
   - TransparentFX
